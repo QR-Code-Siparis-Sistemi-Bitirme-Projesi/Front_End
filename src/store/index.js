@@ -1,14 +1,11 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
+import bilgilerModule from "./modules/bilgiler"
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store = createStore({
   modules: {
-  }
-})
+    bilgiler: bilgilerModule,
+    // auth,
+  },
+});
+
+export default store;

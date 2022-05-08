@@ -1,1 +1,1 @@
-# Bitirme-Projesi
+# BİTİRME PROJESİ FRONT-END

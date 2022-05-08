@@ -1,18 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Listele from "@/views/v_Listeleme.vue";
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Listele',
+    component: Listele
   },
-  {
-    path: '/about',
-    name: 'about',
-
-    component: () => import('../views/AboutView.vue')
-  }
 ]
 
 const router = createRouter({
