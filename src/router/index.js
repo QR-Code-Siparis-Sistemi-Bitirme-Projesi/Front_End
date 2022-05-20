@@ -1,43 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import TatliList from '../views/TatliList.vue'
-import İcecekList from "../views/İcecekList.vue";
-import SandvicList from "../views/SandvicList.vue";
-import SpecialList from "../views/SpecialList.vue";
-import BagelList from "../views/BagelList.vue";
-import KahvaltilarList from "../views/KahvaltilarList.vue";
-
+import MenuView from '../views/MenuView.vue'
+import SepetView from '../views/SepetView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'TatliList',
-    component: TatliList
+    name: 'MenuView',
+    component: MenuView
   },
   {
-    path: '/İcecekList',
-    name: 'İcecekList',
-    component: İcecekList
-  },
-  {
-    path: '/SandvicList',
-    name: 'SandvicList',
-    component: SandvicList
-  },
-  {
-    path: '/SpecialList',
-    name: 'SpecialList',
-    component: SpecialList
-  },
-  {
-    path: '/BagelList',
-    name: 'BagelList',
-    component: BagelList
-  },
-  {
-    path: '/KahvaltilarList',
-    name: 'KahvaltilarList',
-    component: KahvaltilarList
-  },
+    path: '/SepetView',
+    name: 'SepetView',
+    component: SepetView
+  }
 ]
 
 const router = createRouter({

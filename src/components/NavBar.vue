@@ -1,43 +1,51 @@
 <template>
-  <nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-auto">
-          <router-link class="barcizgi" to="/">Tatlılar</router-link>
-        </div>
-        <div class="col-auto">
-          <router-link class="barcizgi" to="/KahvaltilarList"
-            >Kahvaltılar</router-link
-          >
-        </div>
-        <div class="col-auto">
-          <router-link class="barcizgi" to="/İcecekList"
-            >İcecekler
-          </router-link>
-        </div>
-        <div class="col-auto">
-          <router-link class="barcizgi" to="/SandvicList"
-            >Sandviçler</router-link
-          >
-        </div>
-        <div class="col-auto">
-          <router-link class="barcizgi" to="/SpecialList"
-            >Haftasonu Özel</router-link
-          >
-        </div>
-        <div class="col-auto">
-          <router-link class="barcizgi" to="/BagelList">Tek Bagel</router-link>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <div>
+    <b-dropdown
+      text="Menu"
+      block
+      variant="primary"
+      class="m-2"
+      menu-class="w-100"
+    >
+      <b-dropdown-item>
+        <router-link to="/" class="rlink">Çeşit 1</router-link></b-dropdown-item
+      >
+      <b-dropdown-item
+        ><router-link to="/" class="rlink" >Çeşit 2</router-link></b-dropdown-item
+      >
+      <b-dropdown-item
+        ><router-link to="/" class="rlink" >Çeşit 3</router-link></b-dropdown-item
+      >
+      <b-dropdown-item
+        ><router-link to="/" class="rlink" >Çeşit 4</router-link></b-dropdown-item
+      >
+      <b-dropdown-item
+        ><router-link to="/" class="rlink" >Çeşit 5</router-link></b-dropdown-item
+      >
+      <b-dropdown-item
+        ><router-link to="/" class="rlink" >Çeşit 6</router-link></b-dropdown-item
+      >
+      <b-dropdown-item
+        ><router-link to="/" class="rlink" >Çeşit 7</router-link></b-dropdown-item
+      >
+    </b-dropdown>
+  </div>
 </template>
 
 <style>
-</style>
+.rlink:link,
+.rlink:visited {
+  background-color: #f44336;
+  color: white;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 2%;
+}
 
-<style scoped>
-button {
-  margin-right: 15px;
+.rlink:hover,
+.rlink:active {
+  background-color: red;
 }
 </style>
