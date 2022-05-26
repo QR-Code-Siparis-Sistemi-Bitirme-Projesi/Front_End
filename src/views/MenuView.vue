@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <CardList />
+  <CardList >Merhaba</CardList>
   <b-button pill variant="primary"
     ><router-link to="/SepetView">Sepet</router-link></b-button
   >
