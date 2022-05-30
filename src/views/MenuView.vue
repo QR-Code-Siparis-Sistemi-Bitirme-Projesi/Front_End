@@ -1,14 +1,14 @@
 <template>
   <NavBar />
-  <CardList>Merhaba</CardList>
-  <b-button pill variant="primary"
-    ><router-link to="/SepetView">Sepet</router-link></b-button
-  >
-  <div>
-    {{ bilgi }}
-  </div>
-
-  <button @click="BilgileriAl">Paylasim getir</button>
+  <card-list v-for=" urun in urunler" :key="urun">
+    <div>
+      burada gözükecek
+      <li>
+        <p> {{ urun.Fiyat }} </p>
+        <p> {{ urun.Urun }} </p>
+      </li>
+    </div>
+  </card-list>
 </template>
 
 <script>
@@ -22,13 +22,23 @@ export default {
     async BilgileriAl() {
       await MenuAl()
         .then((responseData) => {
-          console.log(responseData);
+          console.log(responseData.resData.ekstraObj);
+          this.urunler = responseData.resData.ekstraObj
         })
         .catch((err) => {
           throw new Error(err);
         });
     },
+
   },
+  mounted() {
+    this.BilgileriAl();
+  },
+  data() {
+    return {
+      urunler: []
+    };
+  }
 };
 </script>
 

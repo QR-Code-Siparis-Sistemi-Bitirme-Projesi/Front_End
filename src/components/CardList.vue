@@ -1,30 +1,12 @@
 <template>
   <b-card-group deck>
     <b-card>
-      <b-card
-        img-src="https://placekitten.com/200/200"
-        img-alt="Card image"
-        img-left
-      >
-      </b-card>
-      <b-card
-        img-src="https://placekitten.com/200/200"
-        img-alt="Card image"
-        img-left
-      >
-      </b-card>
-      <b-card
-        img-src="https://placekitten.com/200/200"
-        img-alt="Card image"
-        img-left
-      >
-      </b-card>
-      <b-card
-        img-src="https://placekitten.com/200/200"
-        img-alt="Card image"
-        img-left
-      >
-      </b-card>
+      <slot> </slot>
     </b-card>
   </b-card-group>
 </template>
+<script>
+export default {
+  props: ['urun'],
+}
+</script>
