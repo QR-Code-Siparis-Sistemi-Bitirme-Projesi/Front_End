@@ -5,6 +5,7 @@
     </b-card>
   </b-card-group>
 </template>
+
 <script>
 export default {
   props: ['urun'],

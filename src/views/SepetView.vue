@@ -6,7 +6,6 @@
     <h1>Sepet</h1>
   </div>
 
-
   <p>Burası Sepet olucak</p>
 </template>
 <script>
