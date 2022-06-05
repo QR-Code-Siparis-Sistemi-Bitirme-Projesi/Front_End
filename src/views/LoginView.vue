@@ -19,7 +19,7 @@ export default {
   methods: {
     GirisYap(e) {
       this.$store
-        .dispatch("Admin/KullaniciGirisi", e) //action tetikler
+        .dispatch("Admin/AdminGirisi", e) //action tetikler
         .then(() => {
           const redirectUrl = "/" + (this.$route.query.redirect || "admin");
           this.$router.push(redirectUrl);

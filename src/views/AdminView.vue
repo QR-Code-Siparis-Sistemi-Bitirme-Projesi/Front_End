@@ -1,13 +1,10 @@
 <template>
-  admin panel
+  <h1>Admin Paneli</h1>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

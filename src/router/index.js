@@ -11,7 +11,11 @@ const routes = [
     component: MenuView
   },
   {
-    path: '/SepetView',
+    path: "/menu",
+    component: MenuView
+  },
+  {
+    path: '/sepet',
     component: SepetView
   },
   {

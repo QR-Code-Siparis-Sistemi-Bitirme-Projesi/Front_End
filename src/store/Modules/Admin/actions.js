@@ -1,7 +1,7 @@
 import { girisYap } from "@/services/AdminService";
 
 export default {
-  async KullaniciGirisi(context, kullanıcı) {
+  async AdminGirisi(context, kullanıcı) {
     await girisYap(kullanıcı)
       .then((resKullanici) => {
         // console.log("response - ", resKullanici);

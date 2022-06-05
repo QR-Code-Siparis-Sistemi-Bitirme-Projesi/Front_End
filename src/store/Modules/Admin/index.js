@@ -2,8 +2,8 @@ import mutations from "./mutations";
 import actions from "./actions";
 import getters from "./getters";
 
-const localKullanici = JSON.parse(localStorage.getItem("kullanici"));
-const baslangicDegeri = localKullanici ? localKullanici : null;
+const AdminLocal = JSON.parse(localStorage.getItem("kullanici"));
+const baslangicDegeri = AdminLocal ? AdminLocal : null;
 
 
 export default {

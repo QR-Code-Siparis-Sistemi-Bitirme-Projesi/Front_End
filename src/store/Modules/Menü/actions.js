@@ -1,4 +1,4 @@
-import { MenuAl } from "@/services/MenuServices.js";
+import { MenuAl } from "@/services/MenuService.js";
 
 export default {
     async BilgileriAl(context) {

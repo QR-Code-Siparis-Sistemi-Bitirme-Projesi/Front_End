@@ -5,7 +5,7 @@ const girisYap = async (admin) => {
     return await axios
         .post(`${BASE_URL}api/giris`, admin)
         .then((response) => {
-            console.log(response)
+            console.log("Giriş Yapıldı.")
             return response;
         })
         .catch((err) => {

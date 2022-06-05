@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { MenuAl } from "../services/MenuServices";
+import { MenuAl } from "../services/MenuService";
 import CardList from "./CardList.vue";
 export default {
   components: { CardList },
