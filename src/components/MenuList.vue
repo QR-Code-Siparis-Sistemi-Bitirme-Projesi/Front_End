@@ -1,74 +1,104 @@
 <template>
-  <card-list v-for="urun in ekstra" :key="urun">
-    <div>
-      <li>
-        <p>Fiyat : {{ urun.Fiyat }}</p>
-        <p>İsim : {{ urun.Urun }}</p>
-      </li>
-    </div>
-  </card-list>
-  <card-list v-for="urun in sandvic" :key="urun">
-    <div>
-      <ul>
-        <li>
-          <p>Fiyat :{{ urun.Fiyat }}</p>
-          <p>İsim :{{ urun.Urun }}</p>
-        </li>
-      </ul>
-    </div>
-  </card-list>
-  <card-list v-for="urun in icecek" :key="urun">
-    <div>
-      <li>
-        <p>Fiyat :{{ urun.Fiyat }}</p>
-        <p>İsim :{{ urun.Urun }}</p>
-      </li>
-    </div>
-  </card-list>
-  <card-list v-for="urun in kahvalti" :key="urun">
-    <div>
-      <li>
-        <p>Fiyat :{{ urun.Fiyat }}</p>
-        <p>İsim :{{ urun.Urun }}</p>
-      </li>
-    </div>
-  </card-list>
-  <card-list v-for="urun in bagel" :key="urun">
-    <div>
-      <li>
-        <p>Fiyat :{{ urun.Fiyat }}</p>
-        <p>İsim :{{ urun.Urun }}</p>
-      </li>
-    </div>
-  </card-list>
-  <card-list v-for="urun in haftaSonu" :key="urun">
-    <div>
-      <li>
-        <p>Fiyat :{{ urun.Fiyat }}</p>
-        <p>İsim :{{ urun.Urun }}</p>
-      </li>
-    </div>
-  </card-list>
-  <card-list v-for="urun in tatli" :key="urun">
-    <div>
-      <li>
-        <p>Fiyat :{{ urun.Fiyat }}</p>
-        <p>İsim :{{ urun.Urun }}</p>
-      </li>
-    </div>
-  </card-list>
+  <b-card>
+    <b-tabs content-class="mt-3 " fill>
+      <b-tab title="Ekstra"
+        ><p>
+          <card-list v-for="urun in ekstra" :key="urun">
+            <div>
+              <li>
+                <p>Fiyat : {{ urun.Fiyat }}</p>
+                <p>İsim : {{ urun.Urun }}</p>
+              </li>
+            </div>
+          </card-list>
+        </p></b-tab
+      >
+      <b-tab title="Kahvaltı"
+        ><p>
+          <card-list v-for="urun in kahvalti" :key="urun">
+            <div>
+              <li>
+                <p>Fiyat : {{ urun.Fiyat }}</p>
+                <p>İsim : {{ urun.Urun }}</p>
+              </li>
+            </div>
+          </card-list>
+        </p></b-tab
+      >
+      <b-tab title="Bagel"
+        ><p>
+          <card-list v-for="urun in bagel" :key="urun">
+            <div>
+              <li>
+                <p>Fiyat : {{ urun.Fiyat }}</p>
+                <p>İsim : {{ urun.Urun }}</p>
+              </li>
+            </div>
+          </card-list>
+        </p></b-tab
+      >
+      <b-tab title="HaftaSonu"
+        ><p>
+          <card-list v-for="urun in haftaSonu" :key="urun">
+            <div>
+              <li>
+                <p>Fiyat : {{ urun.Fiyat }}</p>
+                <p>İsim : {{ urun.Urun }}</p>
+              </li>
+            </div>
+          </card-list>
+        </p></b-tab
+      >
+      <b-tab title="İçecekler"
+        ><p>
+          <card-list v-for="urun in icecek" :key="urun">
+            <div>
+              <li>
+                <p>Fiyat : {{ urun.Fiyat }}</p>
+                <p>İsim : {{ urun.Urun }}</p>
+              </li>
+            </div>
+          </card-list>
+        </p></b-tab
+      >
+      <b-tab title="Tatlılar"
+        ><p>
+          <card-list v-for="urun in tatli" :key="urun">
+            <div>
+              <li>
+                <p>Fiyat : {{ urun.Fiyat }}</p>
+                <p>İsim : {{ urun.Urun }}</p>
+              </li>
+            </div>
+          </card-list>
+        </p></b-tab
+      >
+      <b-tab title="Sandviç"
+        ><p>
+          <card-list v-for="urun in sandvic" :key="urun">
+            <div>
+              <li>
+                <p>Fiyat : {{ urun.Fiyat }}</p>
+                <p>İsim : {{ urun.Urun }}</p>
+              </li>
+            </div>
+          </card-list>
+        </p></b-tab
+      >
+    </b-tabs>
+  </b-card>
 </template>
 
 <script>
 import { MenuAl } from "../services/MenuService";
 import CardList from "./CardList.vue";
+
 export default {
   components: { CardList },
   methods: {
     async MenuCagir() {
       await MenuAl()
         .then((response) => {
-          this.urunler = response.data.resData;
           this.ekstra = response.data.resData.ekstraObj;
           this.kahvalti = response.data.resData.kahvaltiObj;
           this.bagel = response.data.resData.bagelObj;
