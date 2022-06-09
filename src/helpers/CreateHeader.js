@@ -1,10 +1,10 @@
 import store from "@/store";
 
 export default function headerUret() {
-  if (store.getters["auth/girisYapildiMi"]) {
+  if (store.getters["Admin/girisYapildiMi"]) {
     return {
       //token ları almamız gerekiyordu
-      Authorization: `Bearer ${store.getters["auth/tokenAl"].access} ${store.getters["auth/tokenAl"].refresh}`,
+      Authorization: `Bearer ${store.getters["Admin/tokenAl"].access} ${store.getters["Admin/tokenAl"].refresh}`,
     };
   }
   else return {};
