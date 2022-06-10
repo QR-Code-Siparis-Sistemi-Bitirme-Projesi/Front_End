@@ -13,8 +13,9 @@ export default {
         throw err;
       });
   },
-  async MenuyeEkle(_, param, param1, param2) {
-    await UrunEkle(param, param1, param2)
+  async MenuyeEkle(_, param) {
+    console.log("action - ", param);
+    await UrunEkle(param)
       .then((response) => {
         console.log("response kayıt - ", response);
       })

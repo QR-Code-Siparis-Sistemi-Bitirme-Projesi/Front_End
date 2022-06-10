@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg-1 ">
           <b-form-select id="inline-form-custom-select-pref" class="mb-2 mr-sm-2 mb-sm-0"
-            :options="[{ text: 'Tür Seçiniz...', value: null }, 'Bagel', 'Tatlı', 'Ekstra', 'HaftaSonu', 'Kahvaltı', 'Sadnviç', 'İçecek']"
+            :options="[{ text: 'Tür Seçiniz...', value: null }, 'Bagel', 'Tatlı', 'Ekstra', 'HaftaSonu', 'Kahvaltı', 'Sandviç', 'İçecek']"
             :value="null" v-model="Menu.tabIndex"></b-form-select>
         </div>
         <div class="col-lg-1">
@@ -31,17 +31,16 @@
 export default {
   data() {
     return {
-      Menu: {
+      Menu: { // dispatch ederken birden fazla parametreyi taşıyamıyoruz bu yüzden tek bir parametrenin içine atadım. (78.satır)
         Urun: "",
         Fiyat: "",
         tabIndex: "",
       }
-
     }
   },
   methods: {
     KutuBosmu() {
-      if (this.Menu.tabIndex == "" && this.Menu.Urun == "" && this.Menu.Fiyat == "") {
+      if (!this.Menu.tabIndex || this.Menu.Urun === "" || !this.Menu.Fiyat === "") {
         alert("Lütfen Bütün Alanları Doldurunuz")
         throw new Error("Eksik Girdiniz");
 
@@ -53,27 +52,27 @@ export default {
         this.Menu.Fiyat = ""
     },
     async UrunGonder() {
-      this.KutuBosmu();
+      this.KutuBosmu()
       if (this.Menu.tabIndex == "Tatlı") {
         this.Menu.tabIndex = 1
       }
-      else if (this.Menu.tabIndex == "Bagel") {
-        this.Menu.tabIndex = 4
-      }
-      else if (this.Menu.tabIndex == "Ekstra") {
-        this.Menu.tabIndex = 7
-      }
-      else if (this.Menu.tabIndex == "HaftaSonu") {
-        this.Menu.tabIndex = 6
+      else if (this.Menu.tabIndex == "İçecek") {
+        this.Menu.tabIndex = 2
       }
       else if (this.Menu.tabIndex == "Kahvaltı") {
         this.Menu.tabIndex = 3
       }
-      else if (this.Menu.tabIndex == "Sadnviç") {
+      else if (this.Menu.tabIndex == "Bagel") {
+        this.Menu.tabIndex = 4
+      }
+      else if (this.Menu.tabIndex == "Sandviç") {
         this.Menu.tabIndex = 5
       }
-      else if (this.Menu.tabIndex == "İçecek") {
-        this.Menu.tabIndex = 2
+      else if (this.Menu.tabIndex == "HaftaSonu") {
+        this.Menu.tabIndex = 6
+      }
+      else if (this.Menu.tabIndex == "Ekstra") {
+        this.Menu.tabIndex = 7
       }
       this.$store
         .dispatch("Admin/MenuyeEkle", this.Menu)
