@@ -42,9 +42,12 @@ const UrunSil = async (silinecek) => {
     });
 };
 
-const SiparisSil = async (silinecek) => {
+const SiparisSil = async (id) => {
   return await axios
-    .delete(`${BASE_URL}api/SiparisSil`, { id: silinecek.id })
+    .post(`${BASE_URL}api/siparisSil`, { id },
+      {
+        headers: headerUret(),
+      })
     .then(() => {
       console.log("servis - ", this.id);
     });

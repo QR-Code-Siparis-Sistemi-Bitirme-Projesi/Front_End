@@ -34,31 +34,34 @@ export default {
       await SiparisAl()
         .then((response) => {
           this.siparisler = response.data.resData.siparisObj;
+          console.log("siparis", this.siparisler)
         })
         .catch((err) => {
           throw new Error(err);
         });
     },
     SiparisKaldir(id) {
-      this.silinecek.id = id;
-      console.log("id -", this.silinecek.id);
+      console.log("id - ", id)
+      this.$store
+        .dispatch("Admin/SiparisKaldir", id)
+        .then(() => {
 
-      this.$store.dispatch("Admin/SiparisKaldir", this.silinecek).catch((err) => {
-        console.log("hata - ", err);
-      });
+        })
+        .catch((err) => {
+          console.log("hata - ", err)
+        })
     },
   },
   mounted() {
     this.SiparisCagir();
   },
+
   data() {
     return {
       siparisler: [],
-      silinecek: {
-        id: "",
-      },
-    };
-  },
+      id : ""
+    }
+  }
 };
 </script>
 

@@ -41,7 +41,6 @@ export default {
   },
 
   async SiparisKaldir(_, param) {
-    console.log("action - ", param);
     await SiparisSil(param)
       .then((response) => {
         console.log("Sipariş Silindi - ", response);
