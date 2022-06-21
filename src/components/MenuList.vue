@@ -3,8 +3,12 @@
     <b-tabs content-class="mt-3 " fill>
       <b-tab title="Ekstra"
         ><p>
-          <card-list v-for="urun in ekstra" :key="urun">
+                   <card-list v-for="urun in ekstra" :key="urun._id">
+              <button @click="idGoster(urun._id)">
+                kaldir
+              </button>
             <div>
+
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
@@ -15,7 +19,7 @@
       >
       <b-tab title="Kahvaltı"
         ><p>
-          <card-list v-for="urun in kahvalti" :key="urun">
+          <card-list v-for="urun in kahvalti" :key="urun.id">
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -27,7 +31,7 @@
       >
       <b-tab title="Bagel"
         ><p>
-          <card-list v-for="urun in bagel" :key="urun">
+          <card-list v-for="urun in bagel" :key="urun.id">
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -39,7 +43,7 @@
       >
       <b-tab title="HaftaSonu"
         ><p>
-          <card-list v-for="urun in haftaSonu" :key="urun">
+          <card-list v-for="urun in haftaSonu" :key="urun.id">
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -51,7 +55,7 @@
       >
       <b-tab title="İçecekler"
         ><p>
-          <card-list v-for="urun in icecek" :key="urun">
+          <card-list v-for="urun in icecek" :key="urun.id">
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -63,19 +67,7 @@
       >
       <b-tab title="Tatlılar"
         ><p>
-          <card-list v-for="urun in tatli" :key="urun">
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
-          </card-list>
-        </p></b-tab
-      >
-      <b-tab title="Sandviç"
-        ><p>
-          <card-list v-for="urun in sandvic" :key="urun">
+          <card-list v-for="urun in tatli" :key="urun.id">
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -125,6 +117,9 @@ export default {
       tatli: [],
       sandvic: [],
       urunler: [],
+      idGoster(id){
+        alert(id)
+      },
     };
   },
 };
