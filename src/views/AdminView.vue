@@ -1,5 +1,6 @@
 <template>
   <h1>Admin Paneli</h1>
+  <button @click="cikis()">Çıkış</button>
   <b-card>
     <b-tabs content-class="mt-3" justified>
       <b-tab title="Menü Görüntüle">
@@ -35,6 +36,12 @@ export default {
     UrunEkle,
     SiparisList,
   },
+  methods: {
+    cikis() {
+      localStorage.removeItem('kullanici')
+      this.$router.go({ path: "/login" })
+    }
+  }
 };
 </script>
 

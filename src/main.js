@@ -16,3 +16,7 @@ app
     .use(BootstrapVue3)
     .component("CardList", CardList)
     .mount("#app");
+
+window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('kullanici');
+});

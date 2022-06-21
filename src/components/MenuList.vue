@@ -1,25 +1,35 @@
 <template>
+  <div>
+  </div>
   <b-card>
     <b-tabs content-class="mt-3 " fill>
       <b-tab title="Ekstra">
         <p>
           <card-list v-for="urun in ekstra" :key="urun._id">
-            <button @click="UrunKaldir(urun._id)">
+            <button @click="kaldir(urun._id, 7)">
               sil
             </button>
             <div>
-
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
               </li>
             </div>
+            <button v-b-modal.modal-1>ekle</button>
+            <b-modal id="modal-1" title="BootstrapVue">
+
+              <p class="my-4">Hello from modal!</p>
+
+            </b-modal>
           </card-list>
         </p>
       </b-tab>
       <b-tab title="Kahvaltı">
         <p>
           <card-list v-for="urun in kahvalti" :key="urun._id">
+            <button @click="kaldir(urun._id, 3)">
+              sil
+            </button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -32,6 +42,9 @@
       <b-tab title="Bagel">
         <p>
           <card-list v-for="urun in bagel" :key="urun._id">
+            <button @click="kaldir(urun._id, 4)">
+              sil
+            </button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -44,6 +57,9 @@
       <b-tab title="HaftaSonu">
         <p>
           <card-list v-for="urun in haftaSonu" :key="urun._id">
+            <button @click="kaldir(urun._id, 6)">
+              sil
+            </button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -56,6 +72,7 @@
       <b-tab title="İçecekler">
         <p>
           <card-list v-for="urun in icecek" :key="urun._id">
+            <button @click="kaldir(urun._id, 2)">Sil</button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -68,6 +85,7 @@
       <b-tab title="Tatlılar">
         <p>
           <card-list v-for="urun in tatli" :key="urun._id">
+            <button @click="kaldir(id, tabindex = 1)"></button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -80,6 +98,7 @@
       <b-tab title="Sandiviçler">
         <p>
           <card-list v-for="urun in sandvic" :key="urun._id">
+            <button @click="kaldir(id, tabindex = 5)"></button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -117,40 +136,23 @@ export default {
           throw new Error(err);
         });
     },
-    UrunKaldir(id) {
-      if (this.title == "Tatlılar") {
-        return this.silinecek.tabIndex = 1
+    kaldir(id, tabIndex) {
+      // this.silinecek.id = id
+      // this.silinecek.tabIndex = tabIndex
+      this.silinecek = {
+        id: id,
+        tabIndex: tabIndex
       }
-      else if (this.title == "İçecekler") {
-        return this.silinecek.tabIndex = 2
-      }
-      else if (this.title == "Kahvaltı") {
-        return this.silinecek.tabIndex = 3
-      }
-      else if (this.title == "Bagel") {
-        return this.silinecek.tabIndex = 4
-      }
-      else if (this.title == "Sandiviçler") {
-        return this.silinecek.tabIndex = 5
-      }
-      else if (this.title == "HaftaSonu") {
-        return this.silinecek.tabIndex = 6
-      }
-      else if (this.title == "Ekstra") {
-        return this.silinecek.tabIndex = 7
-      }
-      this.silinecek.id = id
-      console.log("id -", this.silinecek.id)
-      console.log("tabIndex -", this.silinecek.tabIndex)
-
-
-
+      console.log("menu - ", this.silinecek)
       this.$store
         .dispatch("Admin/UrunKaldir", this.silinecek)
+        .then(() => {
+          this.MenuCagir()
+        })
         .catch((err) => {
           console.log("hata - ", err)
         })
-    }
+    },
   },
   mounted() {
     this.MenuCagir();

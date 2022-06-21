@@ -1,4 +1,4 @@
-import { girisYap, UrunEkle, UrunSil,SiparisSil } from "@/services/AdminService";
+import { girisYap, UrunEkle, UrunSil, SiparisSil } from "@/services/AdminService";
 
 export default {
   async AdminGirisi(context, kullanıcı) {
@@ -29,14 +29,14 @@ export default {
   },
 
   async UrunKaldir(_, param) {
-    console.log("action - ", param);
+     console.log("action - ", param);
     await UrunSil(param)
-      .then((response) => {
-        console.log("Ürün Silindi - ", response);
-      })
+      // .then((response) => {
+      //   console.log("Ürün Silindi - ", response);
+      // })
       .catch((err) => {
-        console.log(err.response.data.hataMesaji);
-        throw err.response.data.hataMesaji;
+        console.log(err);
+        throw err;
       });
   },
 

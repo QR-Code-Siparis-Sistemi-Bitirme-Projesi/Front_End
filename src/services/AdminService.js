@@ -32,14 +32,9 @@ const UrunEkle = async (Menu) => {
 
 const UrunSil = async (silinecek) => {
   return await axios
-    .delete(`${BASE_URL}api/UrunSil`, {
-      id: silinecek.id,
-      tabIndex: silinecek.tabIndex,
+    .post(`${BASE_URL}api/UrunSil`, {
+      id: silinecek.id, tabIndex: silinecek.tabIndex
     })
-    .then(() => {
-      console.log("servis - ", this.id);
-      console.log("servis -", this.tabIndex);
-    });
 };
 
 const SiparisSil = async (id) => {
@@ -48,9 +43,6 @@ const SiparisSil = async (id) => {
       {
         headers: headerUret(),
       })
-    .then(() => {
-      console.log("servis - ", this.id);
-    });
 };
 
 export { girisYap, UrunEkle, UrunSil, SiparisSil };

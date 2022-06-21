@@ -45,7 +45,7 @@ export default {
       this.$store
         .dispatch("Admin/SiparisKaldir", id)
         .then(() => {
-
+          this.SiparisCagir()
         })
         .catch((err) => {
           console.log("hata - ", err)
@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       siparisler: [],
-      id : ""
+      id: ""
     }
   }
 };
