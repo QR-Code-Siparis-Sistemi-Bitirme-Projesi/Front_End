@@ -4,8 +4,8 @@
       <b-tab title="Ekstra"
         ><p>
                    <card-list v-for="urun in ekstra" :key="urun._id">
-              <button @click="idGoster(urun._id)">
-                kaldir
+              <button @click="UrunuKaldir(urun._id)">
+                sil
               </button>
             <div>
 
@@ -84,6 +84,7 @@
 <script>
 import { MenuAl } from "../services/MenuService";
 import CardList from "./CardList.vue";
+import { UrunSil } from "../services/AdminService";
 
 export default {
   components: { CardList },
@@ -103,9 +104,17 @@ export default {
           throw new Error(err);
         });
     },
+    UrunKaldir(){
+    this.$store
+        .dispatch("Admin/UrunKaldir", this.id)
+        .catch((err) => {
+          console.log("hata - ", err)
+        })
+    }
   },
   mounted() {
     this.MenuCagir();
+    this.UrunKaldir();
   },
   data() {
     return {
@@ -117,8 +126,8 @@ export default {
       tatli: [],
       sandvic: [],
       urunler: [],
-      idGoster(id){
-        alert(id)
+      UrunuKaldir(id){
+        UrunSil(id);
       },
     };
   },

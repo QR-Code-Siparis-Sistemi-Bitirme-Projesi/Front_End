@@ -1,4 +1,4 @@
-import { girisYap, UrunEkle } from "@/services/AdminService";
+import { girisYap, UrunEkle,UrunSil } from "@/services/AdminService";
 
 export default {
   async AdminGirisi(context, kullanıcı) {
@@ -24,4 +24,16 @@ export default {
         throw err.response.data.hataMesaji;
       });
   },
+
+  async UrunKaldir(_,param){
+    console.log("action - ", param);
+    await UrunSil(param)
+      .then((response) => {
+        console.log("response kayıt - ", response);
+      })
+      .catch((err) => {
+        console.log(err.response.data.hataMesaji);
+        throw err.response.data.hataMesaji;
+      });
+  }
 };
