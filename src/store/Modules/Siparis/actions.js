@@ -1,7 +1,7 @@
-import { SiparisAl } from "@/services/SiparisService";
+import { SiparisAl } from "@/services/SiparisService.js";
 
 export default {
-    async BilgileriAl(context) {
+    async SiparisleriAl(context) {
         await SiparisAl()
             .then((responseData) => {
                 context.commit("SiparisDepola", responseData);

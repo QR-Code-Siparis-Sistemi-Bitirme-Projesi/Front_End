@@ -1,24 +1,23 @@
 <template>
   <b-card>
     <b-tabs content-class="mt-3 " fill>
-      <b-tab title="Siparişler"
-        ><p>
-                   <card-list v-for="siparis in siparis" :key="siparis">
+      <b-tab title="Siparişler">
+        <p>
+          <card-list v-for="siparis in siparisler" :key="siparis">
             <div>
               <li>
                 <p>Masa Numarası: {{ siparis.masaNo }}</p>
-                <p>Ürün adı: {{ siarpis.Urun }}</p>
-                <p>Ürün Fiyatı: {{ siarpis.Fiyat }}</p>
-                <p>Ürün içeriği: {{ siarpis.icindekiler }}</p>
-                <p>Ekstralar: {{ siarpis.Ekstralar }}</p>
-                <p>Sipariş Notu: {{ siarpis.Not }}</p>
-                <p>Toplam Fiyat: {{ siarpis.ToplamFiyat }}</p>
+                <p>Ürün adı: {{ siparis.Urun }}</p>
+                <p>Ürün Fiyatı: {{ siparis.Fiyat }}</p>
+                <p>Ürün içeriği: {{ siparis.icindekiler }}</p>
+                <p>Ekstralar: {{ siparis.Ekstralar }}</p>
+                <p>Sipariş Notu: {{ siparis.Not }}</p>
+                <p>Toplam Fiyat: {{ siparis.ToplamFiyat }}</p>
               </li>
             </div>
           </card-list>
-        </p></b-tab
-      >
-      
+        </p>
+      </b-tab>
     </b-tabs>
   </b-card>
 </template>
@@ -33,7 +32,7 @@ export default {
     async SiparisCagir() {
       await SiparisAl()
         .then((response) => {
-            this.siparis = response.data.resData.siparisObj;
+          this.siparisler = response.data.resData.siparisObj
         })
         .catch((err) => {
           throw new Error(err);
@@ -45,7 +44,7 @@ export default {
   },
   data() {
     return {
-        siparis: []
+      siparisler: []
     };
   },
 };

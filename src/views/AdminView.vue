@@ -14,7 +14,7 @@
       </b-tab>
       <b-tab title="Siparişleri Görüntüle">
         <p>
-          <!-- <SiparisList></SiparisList> --> EKSİK
+          <SiparisList /> EKSİK
         </p>
       </b-tab>
       <b-tab title="Sipariş Ekle">
@@ -27,13 +27,13 @@
 <script>
 import MenuList from "../components/MenuList.vue";
 import UrunEkle from "../components/AdminServices/UrunEkle.vue";
-// import SiparisList from "..components/SiparisList.vue";
+import SiparisList from "../components/SiparisList.vue"
 
 export default {
   components: {
     MenuList,
     UrunEkle,
-    // SiparisList,
+    SiparisList,
   },
 };
 </script>
