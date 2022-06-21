@@ -3,7 +3,8 @@
     <b-tabs content-class="mt-3 " fill>
       <b-tab title="Siparişler">
         <p>
-          <card-list v-for="siparis in siparisler" :key="siparis">
+          <card-list v-for="siparis in siparisler" :key="siparis._id">
+            <button @click="SiparisKaldir(siparis._id)">sil</button>
             <div>
               <li>
                 <p>Masa Numarası: {{ siparis.masaNo }}</p>
@@ -32,11 +33,19 @@ export default {
     async SiparisCagir() {
       await SiparisAl()
         .then((response) => {
-          this.siparisler = response.data.resData.siparisObj
+          this.siparisler = response.data.resData.siparisObj;
         })
         .catch((err) => {
           throw new Error(err);
         });
+    },
+    SiparisKaldir(id) {
+      this.silinecek.id = id;
+      console.log("id -", this.silinecek.id);
+
+      this.$store.dispatch("Admin/SiparisKaldir", this.silinecek).catch((err) => {
+        console.log("hata - ", err);
+      });
     },
   },
   mounted() {
@@ -44,7 +53,10 @@ export default {
   },
   data() {
     return {
-      siparisler: []
+      siparisler: [],
+      silinecek: {
+        id: "",
+      },
     };
   },
 };

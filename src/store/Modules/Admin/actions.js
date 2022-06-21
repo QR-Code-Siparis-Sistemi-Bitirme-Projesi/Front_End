@@ -1,4 +1,4 @@
-import { girisYap, UrunEkle, UrunSil } from "@/services/AdminService";
+import { girisYap, UrunEkle, UrunSil,SiparisSil } from "@/services/AdminService";
 
 export default {
   async AdminGirisi(context, kullanıcı) {
@@ -6,7 +6,10 @@ export default {
       .then((resKullanici) => {
         // console.log("response - ", resKullanici);
         context.commit("KullaniciDepola", resKullanici); //mutasyon çağırma
-        localStorage.setItem("kullanici", JSON.stringify(resKullanici.data.mesaj));
+        localStorage.setItem(
+          "kullanici",
+          JSON.stringify(resKullanici.data.mesaj)
+        );
       })
       .catch((err) => {
         console.log("actions hata - ", err);
@@ -35,5 +38,18 @@ export default {
         console.log(err.response.data.hataMesaji);
         throw err.response.data.hataMesaji;
       });
-  }
+  },
+
+  async SiparisKaldir(_, param) {
+    console.log("action - ", param);
+    await SiparisSil(param)
+      .then((response) => {
+        console.log("Sipariş Silindi - ", response);
+      })
+      .catch((err) => {
+        console.log(err.response.data.hataMesaji);
+        throw err.response.data.hataMesaji;
+      });
+  },
+
 };

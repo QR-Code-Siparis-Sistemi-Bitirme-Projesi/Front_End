@@ -32,15 +32,22 @@ const UrunEkle = async (Menu) => {
 
 const UrunSil = async (silinecek) => {
   return await axios
-    .delete(
-      `${BASE_URL}api/UrunSil`,
-      { id: silinecek.id, tabIndex: silinecek.tabIndex },
-    )
+    .delete(`${BASE_URL}api/UrunSil`, {
+      id: silinecek.id,
+      tabIndex: silinecek.tabIndex,
+    })
     .then(() => {
-      console.log("servis - ", this.id)
-      console.log("servis -", this.tabIndex)
+      console.log("servis - ", this.id);
+      console.log("servis -", this.tabIndex);
     });
 };
 
+const SiparisSil = async (silinecek) => {
+  return await axios
+    .delete(`${BASE_URL}api/SiparisSil`, { id: silinecek.id })
+    .then(() => {
+      console.log("servis - ", this.id);
+    });
+};
 
-export { girisYap, UrunEkle, UrunSil };
+export { girisYap, UrunEkle, UrunSil, SiparisSil };
