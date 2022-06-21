@@ -30,17 +30,17 @@ const UrunEkle = async (Menu) => {
     });
 };
 
-const UrunSil = async (Menu) => {
-  axios.post(`${BASE_URL}api/UrunSil`,
-    {id: Menu.urun_id, tabIndex: Menu.tabIndex},
-    {
-        headers:headerUret()
-    }
-    .then(()=>{
-        console.log("Silinen ürün: ",Menu.Urun);
-        console.log("tabIndex", Menu.tabIndex);
-    })
-  )};
+const UrunSil = async (silinecek) => {
+  return await axios
+    .delete(
+      `${BASE_URL}api/UrunSil`,
+      { id: silinecek.id, tabIndex: silinecek.tabIndex },
+    )
+    .then(() => {
+      console.log("servis - ", this.id)
+      console.log("servis -", this.tabIndex)
+    });
+};
 
 
 export { girisYap, UrunEkle, UrunSil };
