@@ -26,13 +26,22 @@ export default {
       if (urunEkliMi == false) {
         state.sepettekiUrunler.push(payload);
       } else {
-        var urunIndex = state.sepettekiUrunler.findIndex(
-          (x) => x.Urun == payload.Urun
+        const guncelSepet = state.sepettekiUrunler.map((sepettekiUrun) =>
+          sepettekiUrun.Urun === payload.Urun
+            ? { ...sepettekiUrun, miktar: payload.miktar }
+            : sepettekiUrun
         );
 
-        let listedekiUrun = state.sepettekiUrunler[urunIndex];
-        listedekiUrun.miktar = payload.miktar; 
-        state.sepettekiUrunler[urunIndex] = listedekiUrun;
+        state.sepettekiUrunler = guncelSepet;
+
+        // var urunIndex = state.sepettekiUrunler.findIndex(
+        //   (x) => x.Urun == payload.Urun
+        // );
+
+        // let listedekiUrun = state.sepettekiUrunler[urunIndex];
+        // console.warn("mutation payload - ", payload);
+        // listedekiUrun.miktar = payload.miktar;
+        // state.sepettekiUrunler[urunIndex] = listedekiUrun;
       }
     }
 

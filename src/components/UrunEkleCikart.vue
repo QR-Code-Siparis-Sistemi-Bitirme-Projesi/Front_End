@@ -25,7 +25,7 @@ export default {
   props: ["eklenenUrun", "propMiktar"],
   data() {
     return {
-      miktar: this.propMiktar || 0,
+      miktar: this.eklenenUrun.miktar || 0,
     };
   },
   methods: {

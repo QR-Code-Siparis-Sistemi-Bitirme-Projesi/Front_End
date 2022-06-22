@@ -1,9 +1,19 @@
 <template>
   <div>
-    <button v-if="this.$store.getters['Sepet/siparisVarMi']" v-b-modal.modal-1>
+    <button
+      v-b-modal.modal-scrollable
+      v-if="this.$store.getters['Sepet/siparisVarMi']"
+      scrollable
+    >
       sepet
     </button>
-    <b-modal id="modal-1" title="Sepetim">
+    <b-modal id="modal-scrollable" scrollable centered title="Sepetim">
+      <div class="d-block text-strt mt-3 mb-0">
+        <b-button class="mb-2" variant="primary">
+          Toplam:
+          <b-badge variant="light">{{ toplamTutarHesapla() }} TL</b-badge>
+        </b-button>
+      </div>
       <card-list v-for="urun in sepetiGetir" :key="urun">
         <div>
           <li>
@@ -13,11 +23,6 @@
           </li>
         </div>
       </card-list>
-      <div class="d-block text-strt mt-3 mb-0">
-        <b-button variant="primary">
-          Toplam: <b-badge variant="light">{{ toplamTutarHesapla() }} TL</b-badge>
-        </b-button>
-      </div>
     </b-modal>
   </div>
   <router-view />
@@ -32,7 +37,7 @@ export default {
   },
   methods: {
     sepetiGuncelle() {
-      this.sepetiGetir();
+      return this.sepetiGetir;
     },
     toplamTutarHesapla() {
       const storeSepetList = JSON.parse(
