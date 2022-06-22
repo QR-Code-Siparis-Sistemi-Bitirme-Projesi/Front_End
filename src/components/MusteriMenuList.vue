@@ -101,7 +101,21 @@ import { MenuAl } from "../services/MenuService";
 import CardList from "./CardList.vue";
 
 export default {
-  components: { CardList },
+  components: {
+    CardList,
+  },
+  data() {
+    return {
+      ekstra: [],
+      kahvalti: [],
+      bagel: [],
+      haftaSonu: [],
+      icecek: [],
+      tatli: [],
+      sandvic: [],
+      urunler: [],
+    };
+  },
   methods: {
     async MenuCagir() {
       await MenuAl()
@@ -122,18 +136,6 @@ export default {
   mounted() {
     this.MenuCagir();
     //this.UrunKaldir();
-  },
-  data() {
-    return {
-      ekstra: [],
-      kahvalti: [],
-      bagel: [],
-      haftaSonu: [],
-      icecek: [],
-      tatli: [],
-      sandvic: [],
-      urunler: [],
-    };
   },
 };
 </script>

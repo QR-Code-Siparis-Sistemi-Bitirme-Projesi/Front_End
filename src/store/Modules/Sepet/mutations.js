@@ -29,7 +29,10 @@ export default {
         var urunIndex = state.sepettekiUrunler.findIndex(
           (x) => x.Urun == payload.Urun
         );
-        state.sepettekiUrunler[urunIndex].miktar = payload.miktar; 
+
+        let listedekiUrun = state.sepettekiUrunler[urunIndex];
+        listedekiUrun.miktar = payload.miktar; 
+        state.sepettekiUrunler[urunIndex] = listedekiUrun;
       }
     }
 
