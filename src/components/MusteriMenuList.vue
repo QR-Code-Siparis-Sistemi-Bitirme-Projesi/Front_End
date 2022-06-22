@@ -1,6 +1,5 @@
 <template>
-  <div>
-  </div>
+  <div></div>
   <b-card>
     <b-tabs content-class="mt-3 " fill>
       <b-tab title="Ekstra">
@@ -10,6 +9,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
+                <EkleCikart :eklenenUrun="urun"/>
               </li>
             </div>
           </card-list>
@@ -22,6 +22,11 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
+                <EkleCikart
+                  @miktarAzalt="UrunMiktarAzalt(e)"
+                  @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)"
+                />
               </li>
             </div>
           </card-list>
@@ -34,6 +39,11 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
+                <EkleCikart
+                  @miktarAzalt="UrunMiktarAzalt(e)"
+                  @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)"
+                />
               </li>
             </div>
           </card-list>
@@ -46,6 +56,11 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
+                <EkleCikart
+                  @miktarAzalt="UrunMiktarAzalt(e)"
+                  @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)"
+                />
               </li>
             </div>
           </card-list>
@@ -58,6 +73,11 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
+                <EkleCikart
+                  @miktarAzalt="UrunMiktarAzalt(e)"
+                  @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)"
+                />
               </li>
             </div>
           </card-list>
@@ -70,6 +90,11 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
+                <EkleCikart
+                  @miktarAzalt="UrunMiktarAzalt(e)"
+                  @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)"
+                />
               </li>
             </div>
           </card-list>
@@ -82,6 +107,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
+                <EkleCikart :eklenenUrun="urun"/>
               </li>
             </div>
           </card-list>
@@ -98,7 +124,6 @@ import CardList from "./CardList.vue";
 export default {
   components: { CardList },
   methods: {
-
     async MenuCagir() {
       await MenuAl()
         .then((response) => {
@@ -114,11 +139,19 @@ export default {
           throw new Error(err);
         });
     },
+    UrunMiktarArttir(e) {
+      this.$emit("arttir", e);
+    },
+    UrunMiktarAzalt(e) {
+      alert(e);
+    },
+    UrunMiktarGir(e) {
+      alert(e);
+    },
   },
   mounted() {
     this.MenuCagir();
     //this.UrunKaldir();
-
   },
   data() {
     return {
