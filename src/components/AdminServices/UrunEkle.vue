@@ -18,8 +18,15 @@
             :options="[{ text: 'Tür Seçiniz...', value: null }, 'Bagel', 'Tatlı', 'Ekstra', 'HaftaSonu', 'Kahvaltı', 'Sandviç', 'İçecek']"
             :value="null" v-model="Menu.tabIndex"></b-form-select>
         </div>
+        <div v-if="Menu.tabIndex == 'Kahvaltı'">
+          <b-form-group>
+            <b-form-checkbox v-for="(icerik, index) in icindekiler" :key="index" v-model="Menu.cikacak" :value="icerik">
+              {{ icerik }}
+            </b-form-checkbox>
+          </b-form-group>
+        </div>
         <div class="col-lg-1">
-          <b-button variant="primary" @click="UrunGonder()">Save</b-button>
+          <b-button type="submit" variant="primary">Save</b-button>
         </div>
       </div>
     </b-form>
@@ -31,19 +38,20 @@
 export default {
   data() {
     return {
+      icindekiler: ["Patates", "Ketçap", "Domates"],
       Menu: { // dispatch ederken birden fazla parametreyi taşıyamıyoruz bu yüzden tek bir parametrenin içine atadım. (78.satır)
         Urun: "",
-        Fiyat: "",
-        tabIndex: "",
+        Fiyat: 0,
+        tabIndex: 0,
+        cikacak: []
       }
     }
   },
   methods: {
     KutuBosmu() {
-      if (!this.Menu.tabIndex || this.Menu.Urun === "" || !this.Menu.Fiyat === "") {
+      if (!this.Menu.tabIndex || this.Menu.Urun === "" || this.Menu.Fiyat === 0 || this.Menu.cikacak.length === 0) {
         alert("Lütfen Bütün Alanları Doldurunuz")
-        throw new Error("Eksik Girdiniz");
-
+        throw Error("Lütfen Bütün Alanları Doldurunuz")
       }
     },
     FormTemizle() {
@@ -52,33 +60,38 @@ export default {
         this.Menu.Fiyat = ""
     },
     async UrunGonder() {
-      this.KutuBosmu()
-      if (this.Menu.tabIndex == "Tatlı") {
-        this.Menu.tabIndex = 1
+      try {
+        this.KutuBosmu()
+        if (this.Menu.tabIndex == "Tatlı") {
+          this.Menu.tabIndex = 1
+        }
+        else if (this.Menu.tabIndex == "İçecek") {
+          this.Menu.tabIndex = 2
+        }
+        else if (this.Menu.tabIndex == "Kahvaltı") {
+          this.Menu.tabIndex = 3
+        }
+        else if (this.Menu.tabIndex == "Bagel") {
+          this.Menu.tabIndex = 4
+        }
+        else if (this.Menu.tabIndex == "Sandviç") {
+          this.Menu.tabIndex = 5
+        }
+        else if (this.Menu.tabIndex == "HaftaSonu") {
+          this.Menu.tabIndex = 6
+        }
+        else if (this.Menu.tabIndex == "Ekstra") {
+          this.Menu.tabIndex = 7
+        }
+        this.$store
+          .dispatch("Admin/MenuyeEkle", this.Menu)
+          .catch((err) => {
+            console.log("hata - ", err)
+          })
       }
-      else if (this.Menu.tabIndex == "İçecek") {
-        this.Menu.tabIndex = 2
+      catch (err) {
+        console.log(err)
       }
-      else if (this.Menu.tabIndex == "Kahvaltı") {
-        this.Menu.tabIndex = 3
-      }
-      else if (this.Menu.tabIndex == "Bagel") {
-        this.Menu.tabIndex = 4
-      }
-      else if (this.Menu.tabIndex == "Sandviç") {
-        this.Menu.tabIndex = 5
-      }
-      else if (this.Menu.tabIndex == "HaftaSonu") {
-        this.Menu.tabIndex = 6
-      }
-      else if (this.Menu.tabIndex == "Ekstra") {
-        this.Menu.tabIndex = 7
-      }
-      this.$store
-        .dispatch("Admin/MenuyeEkle", this.Menu)
-        .catch((err) => {
-          console.log("hata - ", err)
-        })
     },
   }
 }

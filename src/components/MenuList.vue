@@ -85,7 +85,7 @@
       <b-tab title="Tatlılar">
         <p>
           <card-list v-for="urun in tatli" :key="urun._id">
-            <button @click="kaldir(id, tabindex = 1)"></button>
+            <button @click="kaldir(urun._id, 1)">Sil</button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
@@ -98,7 +98,7 @@
       <b-tab title="Sandiviçler">
         <p>
           <card-list v-for="urun in sandvic" :key="urun._id">
-            <button @click="kaldir(id, tabindex = 5)"></button>
+            <button @click="kaldir(urun._id, 5)">Sil</button>
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>

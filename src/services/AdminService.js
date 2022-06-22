@@ -18,7 +18,7 @@ const UrunEkle = async (Menu) => {
   return await axios
     .post(
       `${BASE_URL}api/UrunEkle`,
-      { Urun: Menu.Urun, Fiyat: Menu.Fiyat, tabIndex: Menu.tabIndex },
+      { Urun: Menu.Urun, Fiyat: Menu.Fiyat, icindekiler: Menu.cikacak, tabIndex: Menu.tabIndex },
       {
         headers: headerUret(),
       }
@@ -26,6 +26,7 @@ const UrunEkle = async (Menu) => {
     .then(() => {
       console.log("Ürün - ", Menu.Urun);
       console.log("Fiyat - ", Menu.Fiyat);
+      console.log("tabIndex - ", Menu.cikacak);
       console.log("tabIndex - ", Menu.tabIndex);
     });
 };

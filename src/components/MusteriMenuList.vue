@@ -1,5 +1,4 @@
 <template>
-  <div></div>
   <b-card>
     <b-tabs content-class="mt-3 " fill>
       <b-tab title="Ekstra">
@@ -9,7 +8,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart :eklenenUrun="urun"/>
+                <EkleCikart :eklenenUrun="urun" />
               </li>
             </div>
           </card-list>
@@ -22,11 +21,8 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart
-                  @miktarAzalt="UrunMiktarAzalt(e)"
-                  @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)"
-                />
+                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)" />
               </li>
             </div>
           </card-list>
@@ -39,11 +35,8 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart
-                  @miktarAzalt="UrunMiktarAzalt(e)"
-                  @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)"
-                />
+                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)" />
               </li>
             </div>
           </card-list>
@@ -56,11 +49,8 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart
-                  @miktarAzalt="UrunMiktarAzalt(e)"
-                  @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)"
-                />
+                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)" />
               </li>
             </div>
           </card-list>
@@ -73,11 +63,8 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart
-                  @miktarAzalt="UrunMiktarAzalt(e)"
-                  @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)"
-                />
+                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)" />
               </li>
             </div>
           </card-list>
@@ -90,11 +77,8 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart
-                  @miktarAzalt="UrunMiktarAzalt(e)"
-                  @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)"
-                />
+                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
+                  @miktarArttir="UrunMiktarArttir(e)" />
               </li>
             </div>
           </card-list>
@@ -107,7 +91,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart :eklenenUrun="urun"/>
+                <EkleCikart :eklenenUrun="urun" />
               </li>
             </div>
           </card-list>
