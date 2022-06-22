@@ -29,7 +29,7 @@
               </b-row>
               <b-modal id="modal-2" title="BootstrapVue">
                 <b-card>
-                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 3)">
                     <div class="row">
                       <div class="col-lg-4">
                         Ürün
@@ -38,6 +38,7 @@
                         </b-form-input>
                       </div>
                       <div class="col-lg-4">
+                        Fiyat
                         <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
                           <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
                           </b-form-input>
@@ -81,7 +82,7 @@
               </b-row>
               <b-modal id="modal-2" title="BootstrapVue">
                 <b-card>
-                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 4)">
                     <div class="row">
                       <div class="col-lg-4">
                         Ürün
@@ -90,6 +91,7 @@
                         </b-form-input>
                       </div>
                       <div class="col-lg-4">
+                        Fiyat
                         <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
                           <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
                           </b-form-input>
@@ -133,7 +135,7 @@
               </b-row>
               <b-modal id="modal-2" title="BootstrapVue">
                 <b-card>
-                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 6)">
                     <div class="row">
                       <div class="col-lg-4">
                         Ürün
@@ -143,6 +145,7 @@
                       </div>
                       <div class="col-lg-4">
                         <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                          Fiyat
                           <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
                           </b-form-input>
                         </b-input-group>
@@ -175,7 +178,7 @@
               </b-row>
               <b-row>
                 <b-col>
-                  <b-button pill variant="danger" @click="kaldir(urun._id, 7)">
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 2)">
                     sil
                   </b-button>
                 </b-col>
@@ -194,6 +197,7 @@
                         </b-form-input>
                       </div>
                       <div class="col-lg-4">
+                        Fiyat
                         <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
                           <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
                           </b-form-input>
@@ -236,7 +240,7 @@
               </b-row>
               <b-modal id="modal-2" title="BootstrapVue">
                 <b-card>
-                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 1)">
                     <div class="row">
                       <div class="col-lg-4">
                         Ürün
@@ -245,6 +249,7 @@
                         </b-form-input>
                       </div>
                       <div class="col-lg-4">
+                        Fiyat
                         <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
                           <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
                           </b-form-input>
@@ -278,7 +283,7 @@
               </b-row>
               <b-row>
                 <b-col>
-                  <b-button pill variant="danger" @click="kaldir(urun._id, 7)">
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 5)">
                     sil
                   </b-button>
                 </b-col>
@@ -297,6 +302,7 @@
                         </b-form-input>
                       </div>
                       <div class="col-lg-4">
+                        Fiyat
                         <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
                           <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
                           </b-form-input>
