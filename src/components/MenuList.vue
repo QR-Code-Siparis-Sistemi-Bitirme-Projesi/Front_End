@@ -3,130 +3,313 @@
   </div>
   <b-card>
     <b-tabs content-class="mt-3 " fill>
-      <b-tab title="Ekstra">
-        <p>
-          <card-list v-for="urun in ekstra" :key="urun._id">
-            <button @click="kaldir(urun._id, 7)">
-              sil
-            </button>
-            <button v-b-modal.modal-2>Düzenle</button>
-            <b-modal id="modal-2" title="BootstrapVue">
-              <b-card>
-                <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
-                  <div class="row">
-                    <div class="col-lg-4">
-                      Ürün
-                      <b-form-input id="inline-form-input-username" placeholder="Ürün adı" v-model="duzenlenecek.Urun">
-                      </b-form-input>
-                    </div>
-                    <div class="col-lg-4">
-                      <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-                        <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
-                        </b-form-input>
-                      </b-input-group>
-                    </div>
-                    <div class="col-lg-2">
-                      <b-button type="submit" variant="primary">Save</b-button>
-                    </div>
-                  </div>
-                </b-form>
-              </b-card>
-            </b-modal>
-
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
-            <button v-b-modal.modal-3>Ekle</button>
-            <b-modal id="modal-3" title="BootstrapVue">
-              <p class="my-4">Hello from modal!</p>
-            </b-modal>
-          </card-list>
-        </p>
-      </b-tab>
       <b-tab title="Kahvaltı">
         <p>
-          <card-list v-for="urun in kahvalti" :key="urun._id">
-            <button @click="kaldir(urun._id, 3)">
-              sil
-            </button>
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
+          <card-list v-for="urun in kahvalti" :key="urun._id" class="cerceve">
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col>
+                  <div>
+                    <li>
+                      <p class="yaziCerceve "><b>{{ urun.Urun }}</b></p>
+                      <p class="fiyatCerceve"><b>Fiyat :</b> {{ urun.Fiyat }} <b> TL</b></p>
+                    </li>
+                  </div>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 3)">
+                    sil
+                  </b-button>
+                </b-col>
+                <b-col>
+                  <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
+                </b-col>
+              </b-row>
+              <b-modal id="modal-2" title="BootstrapVue">
+                <b-card>
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        Ürün
+                        <b-form-input id="inline-form-input-username" placeholder="Ürün adı"
+                          v-model="duzenlenecek.Urun">
+                        </b-form-input>
+                      </div>
+                      <div class="col-lg-4">
+                        <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                          <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
+                          </b-form-input>
+                        </b-input-group>
+                      </div>
+                      <div class="col-lg-2">
+                        <b-button type="submit" variant="primary">Save</b-button>
+                      </div>
+                    </div>
+                  </b-form>
+                </b-card>
+              </b-modal>
+            </b-container>
           </card-list>
         </p>
       </b-tab>
+
       <b-tab title="Bagel">
         <p>
-          <card-list v-for="urun in bagel" :key="urun._id">
-            <button @click="kaldir(urun._id, 4)">
-              sil
-            </button>
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
+          <card-list v-for="urun in bagel" :key="urun._id" class="cerceve">
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col>
+                  <div>
+                    <li>
+                      <p class="yaziCerceve "><b>{{ urun.Urun }}</b></p>
+                      <p class="fiyatCerceve"><b>Fiyat :</b> {{ urun.Fiyat }} <b> TL</b></p>
+                    </li>
+                  </div>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 4)">
+                    sil
+                  </b-button>
+                </b-col>
+                <b-col>
+                  <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
+                </b-col>
+              </b-row>
+              <b-modal id="modal-2" title="BootstrapVue">
+                <b-card>
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        Ürün
+                        <b-form-input id="inline-form-input-username" placeholder="Ürün adı"
+                          v-model="duzenlenecek.Urun">
+                        </b-form-input>
+                      </div>
+                      <div class="col-lg-4">
+                        <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                          <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
+                          </b-form-input>
+                        </b-input-group>
+                      </div>
+                      <div class="col-lg-2">
+                        <b-button type="submit" variant="primary">Save</b-button>
+                      </div>
+                    </div>
+                  </b-form>
+                </b-card>
+              </b-modal>
+            </b-container>
           </card-list>
         </p>
       </b-tab>
+
       <b-tab title="HaftaSonu">
         <p>
-          <card-list v-for="urun in haftaSonu" :key="urun._id">
-            <button @click="kaldir(urun._id, 6)">
-              sil
-            </button>
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
+          <card-list v-for="urun in haftaSonu" :key="urun._id" class="cerceve">
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col>
+                  <div>
+                    <li>
+                      <p class="yaziCerceve "><b>{{ urun.Urun }}</b></p>
+                      <p class="fiyatCerceve"><b>Fiyat :</b> {{ urun.Fiyat }} <b> TL</b></p>
+                    </li>
+                  </div>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 6)">
+                    sil
+                  </b-button>
+                </b-col>
+                <b-col>
+                  <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
+                </b-col>
+              </b-row>
+              <b-modal id="modal-2" title="BootstrapVue">
+                <b-card>
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        Ürün
+                        <b-form-input id="inline-form-input-username" placeholder="Ürün adı"
+                          v-model="duzenlenecek.Urun">
+                        </b-form-input>
+                      </div>
+                      <div class="col-lg-4">
+                        <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                          <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
+                          </b-form-input>
+                        </b-input-group>
+                      </div>
+                      <div class="col-lg-2">
+                        <b-button type="submit" variant="primary">Save</b-button>
+                      </div>
+                    </div>
+                  </b-form>
+                </b-card>
+              </b-modal>
+            </b-container>
           </card-list>
         </p>
       </b-tab>
+
       <b-tab title="İçecekler">
         <p>
-          <card-list v-for="urun in icecek" :key="urun._id">
-            <button @click="kaldir(urun._id, 2)">Sil</button>
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
+          <card-list v-for="urun in icecek" :key="urun._id" class="cerceve">
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col>
+                  <div>
+                    <li>
+                      <p class="yaziCerceve "><b>{{ urun.Urun }}</b></p>
+                      <p class="fiyatCerceve"><b>Fiyat :</b> {{ urun.Fiyat }} <b> TL</b></p>
+                    </li>
+                  </div>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 7)">
+                    sil
+                  </b-button>
+                </b-col>
+                <b-col>
+                  <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
+                </b-col>
+              </b-row>
+              <b-modal id="modal-2" title="BootstrapVue">
+                <b-card>
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 2)">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        Ürün
+                        <b-form-input id="inline-form-input-username" placeholder="Ürün adı"
+                          v-model="duzenlenecek.Urun">
+                        </b-form-input>
+                      </div>
+                      <div class="col-lg-4">
+                        <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                          <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
+                          </b-form-input>
+                        </b-input-group>
+                      </div>
+                      <div class="col-lg-2">
+                        <b-button type="submit" variant="primary">Save</b-button>
+                      </div>
+                    </div>
+                  </b-form>
+                </b-card>
+              </b-modal>
+            </b-container>
           </card-list>
         </p>
       </b-tab>
       <b-tab title="Tatlılar">
         <p>
-          <card-list v-for="urun in tatli" :key="urun._id">
-            <button @click="kaldir(urun._id, 1)">Sil</button>
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
+          <card-list v-for="urun in tatli" :key="urun._id" class="cerceve">
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col>
+                  <div>
+                    <li>
+                      <p class="yaziCerceve "><b>{{ urun.Urun }}</b></p>
+                      <p class="fiyatCerceve"><b>Fiyat :</b> {{ urun.Fiyat }} <b> TL</b></p>
+                    </li>
+                  </div>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 1)">
+                    sil
+                  </b-button>
+                </b-col>
+                <b-col>
+                  <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
+                </b-col>
+              </b-row>
+              <b-modal id="modal-2" title="BootstrapVue">
+                <b-card>
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        Ürün
+                        <b-form-input id="inline-form-input-username" placeholder="Ürün adı"
+                          v-model="duzenlenecek.Urun">
+                        </b-form-input>
+                      </div>
+                      <div class="col-lg-4">
+                        <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                          <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
+                          </b-form-input>
+                        </b-input-group>
+                      </div>
+                      <div class="col-lg-2">
+                        <b-button type="submit" variant="primary">Save</b-button>
+                      </div>
+                    </div>
+                  </b-form>
+                </b-card>
+              </b-modal>
+            </b-container>
           </card-list>
         </p>
       </b-tab>
+
       <b-tab title="Sandiviçler">
         <p>
-          <card-list v-for="urun in sandvic" :key="urun._id">
-            <button @click="kaldir(urun._id, 5)">Sil</button>
-            <div>
-              <li>
-                <p>Fiyat : {{ urun.Fiyat }}</p>
-                <p>İsim : {{ urun.Urun }}</p>
-              </li>
-            </div>
+          <card-list v-for="urun in sandvic" :key="urun._id" class="cerceve">
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col>
+                  <div>
+                    <li>
+                      <p class="yaziCerceve "><b>{{ urun.Urun }}</b></p>
+                      <p class="fiyatCerceve"><b>Fiyat :</b> {{ urun.Fiyat }} <b> TL</b></p>
+                    </li>
+                  </div>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <b-button pill variant="danger" @click="kaldir(urun._id, 7)">
+                    sil
+                  </b-button>
+                </b-col>
+                <b-col>
+                  <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
+                </b-col>
+              </b-row>
+              <b-modal id="modal-2" title="BootstrapVue">
+                <b-card>
+                  <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 5)">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        Ürün
+                        <b-form-input id="inline-form-input-username" placeholder="Ürün adı"
+                          v-model="duzenlenecek.Urun">
+                        </b-form-input>
+                      </div>
+                      <div class="col-lg-4">
+                        <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                          <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
+                          </b-form-input>
+                        </b-input-group>
+                      </div>
+                      <div class="col-lg-2">
+                        <b-button type="submit" variant="primary">Save</b-button>
+                      </div>
+                    </div>
+                  </b-form>
+                </b-card>
+              </b-modal>
+            </b-container>
           </card-list>
         </p>
       </b-tab>
@@ -226,5 +409,36 @@ export default {
 <style scoped>
 li {
   list-style: none;
+}
+
+.renk {
+  color: white;
+}
+
+.cerceve {
+  border: 1px solid black;
+}
+
+.pozisyon {
+  padding-top: 8%;
+}
+
+.yaziCerceve {
+  border: 1px solid red;
+  border-radius: 15px;
+  max-width: 60%;
+  margin-left: 20%;
+  background-color: red;
+  color: whitesmoke;
+}
+
+.fiyatCerceve {
+  border: 1px solid lightgreen;
+  border-radius: 15px;
+  max-width: 30%;
+  margin-left: 35%;
+  background-color: lightgreen;
+
+  color: black;
 }
 </style>

@@ -1,23 +1,21 @@
 <template>
-  <div class="row">
-    <div class="col-3">
-      <button
-        v-on:click="azalt()"
-        :disabled="miktar < 1"
-        class="btn btn-danger"
-      >
-        <i class="fas fa-minus-circle"></i>
-      </button>
-    </div>
-    <div class="col-6">
-      <input v-model="miktar" disabled />
-    </div>
-    <div class="col-3">
-      <button v-on:click="arttir()" class="btn btn-success">
-        <i class="fas fa-plus-circle"></i>
-      </button>
-    </div>
-  </div>
+  <b-container class="bv-example-row">
+    <b-row>
+      <b-col>
+        <button v-on:click="azalt()" :disabled="miktar < 1" class="btn btn-danger">
+          <i class="fas fa-minus-circle">-</i>
+        </button>
+      </b-col>
+      <b-col>
+        <input v-model="miktar" disabled />
+      </b-col>
+      <b-col>
+        <button v-on:click="arttir()" class="btn btn-success">
+          <i class="fas fa-plus-circle">+</i>
+        </button>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -46,4 +44,7 @@ export default {
 </script>
 
 <style>
+.yükseklik {
+  padding-top: 7%;
+}
 </style>

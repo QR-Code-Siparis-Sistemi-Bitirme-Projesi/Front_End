@@ -53,7 +53,13 @@ export default {
   },
   methods: {
     KutuBosmu() {
-      if (!this.Menu.tabIndex || this.Menu.Urun === "" || this.Menu.Fiyat === 0 || this.Menu.cikacak.length === 0) {
+      if (!this.Menu.tabIndex || this.Menu.Urun === "" || this.Menu.Fiyat === 0) {
+        alert("Lütfen Bütün Alanları Doldurunuz")
+        throw Error("Lütfen Bütün Alanları Doldurunuz")
+      }
+    },
+    İcerikBosmu() {
+      if (this.Menu.cikacak.length === 0) {
         alert("Lütfen Bütün Alanları Doldurunuz")
         throw Error("Lütfen Bütün Alanları Doldurunuz")
       }
@@ -73,12 +79,14 @@ export default {
           this.Menu.tabIndex = 2
         }
         else if (this.Menu.tabIndex == "Kahvaltı") {
+          this.İcerikBosmu()
           this.Menu.tabIndex = 3
         }
         else if (this.Menu.tabIndex == "Bagel") {
           this.Menu.tabIndex = 4
         }
         else if (this.Menu.tabIndex == "Sandviç") {
+          this.İcerikBosmu()
           this.Menu.tabIndex = 5
         }
         else if (this.Menu.tabIndex == "HaftaSonu") {

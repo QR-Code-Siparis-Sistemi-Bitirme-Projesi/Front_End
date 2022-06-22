@@ -1,28 +1,31 @@
 <template>
   <div>
-    <button
-      v-b-modal.modal-scrollable
-      v-if="this.$store.getters['Sepet/siparisVarMi']"
-      scrollable
-    >
+    <b-button pill variant="danger" v-b-modal.modal-scrollable v-if="siparisVarMi()" scrollable>
       sepet
-    </button>
+    </b-button>
     <b-modal id="modal-scrollable" scrollable centered title="Sepetim">
-      <div class="d-block text-strt mt-3 mb-0">
-        <b-button class="mb-2" variant="primary">
-          Toplam:
-          <b-badge variant="light">{{ toplamTutarHesapla() }} TL</b-badge>
-        </b-button>
-      </div>
-      <card-list v-for="urun in sepetiGetir" :key="urun">
-        <div>
-          <li>
-            <p>Fiyat : {{ urun.Fiyat }}</p>
-            <p>İsim : {{ urun.Urun }}</p>
-            <EkleCikart :eklenenUrun="urun" :propMiktar="urun.miktar" />
-          </li>
-        </div>
-      </card-list>
+      <b-container class="bv-example-row">
+        <b-row>
+          <!-- <div class="d-block text-strt mt-3 mb-0"> </div> -->
+          <b-col>
+            <card-list v-for="urun in sepetiGetir" :key="urun">
+              <div>
+                <li>
+                  <p><b>{{ urun.Urun }}</b></p>
+                  <p><b>Fiyat : </b>{{ urun.Fiyat }}</p>
+                  <EkleCikart :eklenenUrun="urun" :propMiktar="urun.miktar" />
+                </li>
+              </div>
+            </card-list>
+          </b-col>
+          <b-col>
+            <b-button class="mb-2" variant="primary">
+              Toplam:
+              <b-badge variant="light">{{ toplamTutarHesapla() }} TL</b-badge>
+            </b-button>
+          </b-col>
+        </b-row>
+      </b-container>
     </b-modal>
   </div>
   <router-view />
@@ -34,8 +37,13 @@ export default {
     sepetiGetir() {
       return this.$store.getters["Sepet/sepetiAl"];
     },
+
   },
   methods: {
+    siparisVarMi() {
+      return this.$store.getters['Sepet/siparisVarMi']
+    },
+
     sepetiGuncelle() {
       return this.sepetiGetir;
     },
@@ -48,6 +56,7 @@ export default {
         return toplam + urun.miktar * urun.Fiyat;
       }, 0);
     },
+
   },
   watch: {
     sepetiGetir() {
@@ -65,5 +74,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   position: relative;
+}
+
+li {
+  list-style: none;
 }
 </style>
