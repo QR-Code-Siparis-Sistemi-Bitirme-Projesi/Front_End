@@ -22,10 +22,10 @@
 
 <script>
 export default {
-  props: ["eklenenUrun"],
+  props: ["eklenenUrun", "propMiktar"],
   data() {
     return {
-      miktar: 0,
+      miktar: this.propMiktar || 0,
     };
   },
   methods: {

@@ -21,8 +21,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)" />
+                <EkleCikart :eklenenUrun="urun" />
               </li>
             </div>
           </card-list>
@@ -35,8 +34,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)" />
+                <EkleCikart :eklenenUrun="urun" />
               </li>
             </div>
           </card-list>
@@ -49,8 +47,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)" />
+                <EkleCikart :eklenenUrun="urun" />
               </li>
             </div>
           </card-list>
@@ -63,8 +60,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)" />
+                <EkleCikart :eklenenUrun="urun" />
               </li>
             </div>
           </card-list>
@@ -77,8 +73,7 @@
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
-                <EkleCikart @miktarAzalt="UrunMiktarAzalt(e)" @miktarGir="UrunMiktarGir(e)"
-                  @miktarArttir="UrunMiktarArttir(e)" />
+                <EkleCikart :eklenenUrun="urun" />
               </li>
             </div>
           </card-list>
