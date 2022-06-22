@@ -113,7 +113,7 @@
 </template>
 
 <script>
-import { MenuAl } from "../services/MenuService";
+import { AMenuAl } from "../services/AdminService";
 import CardList from "./CardList.vue";
 //import { UrunSil } from "../services/AdminService";
 
@@ -122,7 +122,7 @@ export default {
   methods: {
 
     async MenuCagir() {
-      await MenuAl()
+      await AMenuAl()
         .then((response) => {
           this.ekstra = response.data.resData.ekstraObj;
           this.kahvalti = response.data.resData.kahvaltiObj;

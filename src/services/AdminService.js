@@ -18,7 +18,7 @@ const UrunEkle = async (Menu) => {
   return await axios
     .post(
       `${BASE_URL}api/UrunEkle`,
-      { Urun: Menu.Urun, Fiyat: Menu.Fiyat, icindekiler: Menu.cikacak, tabIndex: Menu.tabIndex },
+      { Urun: Menu.Urun, Fiyat: Menu.Fiyat, İçindekiler: Menu.cikacak, tabIndex: Menu.tabIndex },
       {
         headers: headerUret(),
       }
@@ -34,8 +34,12 @@ const UrunEkle = async (Menu) => {
 const UrunSil = async (silinecek) => {
   return await axios
     .post(`${BASE_URL}api/UrunSil`, {
-      id: silinecek.id, tabIndex: silinecek.tabIndex
-    })
+      id: silinecek.id, tabIndex: silinecek.tabIndex,
+    },
+      {
+        headers: headerUret(),
+      }
+    )
 };
 
 const SiparisSil = async (id) => {
@@ -46,4 +50,19 @@ const SiparisSil = async (id) => {
       })
 };
 
-export { girisYap, UrunEkle, UrunSil, SiparisSil };
+const AMenuAl = async (Menu) => {
+  return await axios
+    .get(`${BASE_URL}api/MenuAl`, Menu, /*{
+      // headers: headerUret(),
+    }*/
+  )
+    .then((response) => {
+      console.log("servis - ", response)
+      return response;
+    })
+    .catch((err) => {
+      throw err
+    })
+}
+
+export { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl };

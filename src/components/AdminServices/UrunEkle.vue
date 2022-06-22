@@ -18,7 +18,7 @@
             :options="[{ text: 'Tür Seçiniz...', value: null }, 'Bagel', 'Tatlı', 'Ekstra', 'HaftaSonu', 'Kahvaltı', 'Sandviç', 'İçecek']"
             :value="null" v-model="Menu.tabIndex"></b-form-select>
         </div>
-        <div v-if="Menu.tabIndex == 'Kahvaltı'">
+        <div v-if="Menu.tabIndex == 'Kahvaltı' || Menu.tabIndex == 'Sandviç'">
           <b-form-group>
             <b-form-checkbox v-for="(icerik, index) in icindekiler" :key="index" v-model="Menu.cikacak" :value="icerik">
               {{ icerik }}
@@ -38,7 +38,11 @@
 export default {
   data() {
     return {
-      icindekiler: ["Patates", "Ketçap", "Domates"],
+      icindekiler:
+        ["Balli Yoğurt", "Ketçap", "Domates", "Mayonez", "Marul",
+          "Hardalli Sos", "Baharat", "Sriracha Sos", "Nohut Karisimi", "Tursu",
+          "Cheddar Peynir", "Pancarli Somon", "Avokado", "Krem Peynir", "Deniz Tuzu",
+          "Kirmizi Sogan Tursusu", "Kapari Tursusu", "Fume Somon",],
       Menu: { // dispatch ederken birden fazla parametreyi taşıyamıyoruz bu yüzden tek bir parametrenin içine atadım. (78.satır)
         Urun: "",
         Fiyat: 0,
@@ -85,6 +89,9 @@ export default {
         }
         this.$store
           .dispatch("Admin/MenuyeEkle", this.Menu)
+          .then(() => {
+            alert("Ürün Eklendi")
+          })
           .catch((err) => {
             console.log("hata - ", err)
           })

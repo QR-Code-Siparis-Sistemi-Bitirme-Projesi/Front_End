@@ -4,10 +4,10 @@ import axios from "axios";
 
 const SiparisAl = async (siparis) => {
   return await axios
-    .get(`${BASE_URL}api/siparisleriCagir`, siparis , /*{
+    .get(`${BASE_URL}api/siparisleriCagir`, siparis, /*{
       // headers: headerUret(),
     }*/
-    )
+  )
     .then((response) => {
       console.log("servis - ", response)
       return response;
@@ -16,7 +16,5 @@ const SiparisAl = async (siparis) => {
       throw err
     })
 }
-
-
 
 export { SiparisAl }
