@@ -25,13 +25,11 @@ export default {
 
       if (urunEkliMi == false) {
         state.sepettekiUrunler.push(payload);
-        console.log("28.satır ", state.sepettekiUrunler);
       } else {
         var urunIndex = state.sepettekiUrunler.findIndex(
           (x) => x.Urun == payload.Urun
         );
         state.sepettekiUrunler[urunIndex].miktar = payload.miktar; 
-        console.log("33.satır ", state.sepettekiUrunler[urunIndex]);
       }
     }
 
