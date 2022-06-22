@@ -118,15 +118,6 @@ export default {
           throw new Error(err);
         });
     },
-    UrunMiktarArttir(e) {
-      this.$emit("arttir", e);
-    },
-    UrunMiktarAzalt(e) {
-      alert(e);
-    },
-    UrunMiktarGir(e) {
-      alert(e);
-    },
   },
   mounted() {
     this.MenuCagir();
