@@ -1,12 +1,12 @@
 <template>
-  <MenuList></MenuList>
+  <MusteriMenuList></MusteriMenuList>
 </template>
 
 <script>
-import MenuList from "../components/MenuList.vue";
+import MusteriMenuList from "../components/MusteriMenuList.vue";
 export default {
   components: {
-    MenuList,
+    MusteriMenuList,
   },
 };
 </script>
