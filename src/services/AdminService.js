@@ -64,5 +64,11 @@ const AMenuAl = async (Menu) => {
       throw err
     })
 }
+const MenuDuzenle = async (menu) => {
+  console.log("servis - ", menu)
+  return await axios
+    .put(`${BASE_URL}api/UrunDuzenle`,
+      { id: menu.id, Urun: menu.Urun, Fiyat: menu.Fiyat, tabIndex: menu.tabIndex })
+}
 
-export { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl };
+export { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl, MenuDuzenle };

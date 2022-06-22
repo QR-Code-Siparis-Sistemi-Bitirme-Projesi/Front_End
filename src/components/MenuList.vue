@@ -9,17 +9,39 @@
             <button @click="kaldir(urun._id, 7)">
               sil
             </button>
+            <button v-b-modal.modal-2>Düzenle</button>
+            <b-modal id="modal-2" title="BootstrapVue">
+              <b-card>
+                <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 7)">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      Ürün
+                      <b-form-input id="inline-form-input-username" placeholder="Ürün adı" v-model="duzenlenecek.Urun">
+                      </b-form-input>
+                    </div>
+                    <div class="col-lg-4">
+                      <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+                        <b-form-input type="number" placeholder="Fiyat" v-model.number="duzenlenecek.Fiyat">
+                        </b-form-input>
+                      </b-input-group>
+                    </div>
+                    <div class="col-lg-2">
+                      <b-button type="submit" variant="primary">Save</b-button>
+                    </div>
+                  </div>
+                </b-form>
+              </b-card>
+            </b-modal>
+
             <div>
               <li>
                 <p>Fiyat : {{ urun.Fiyat }}</p>
                 <p>İsim : {{ urun.Urun }}</p>
               </li>
             </div>
-            <button v-b-modal.modal-1>ekle</button>
-            <b-modal id="modal-1" title="BootstrapVue">
-
+            <button v-b-modal.modal-3>Ekle</button>
+            <b-modal id="modal-3" title="BootstrapVue">
               <p class="my-4">Hello from modal!</p>
-
             </b-modal>
           </card-list>
         </p>
@@ -120,6 +142,25 @@ import CardList from "./CardList.vue";
 export default {
   components: { CardList },
   methods: {
+    Duzenle(id, Urun, Fiyat, tabIndex) {
+      this.duzenlenecek = {
+        id: id,
+        Urun: Urun,
+        Fiyat: Fiyat,
+        tabIndex: tabIndex
+      }
+      console.log("menü - ", this.duzenlenecek)
+      this.$store
+        .dispatch("Admin/MenuDuzenleme", this.duzenlenecek)
+        .then(() => {
+
+          this.MenuCagir()
+        })
+        .catch((err) => {
+          console.log("hata - ", err)
+        })
+
+    },
 
     async MenuCagir() {
       await AMenuAl()
@@ -137,8 +178,6 @@ export default {
         });
     },
     kaldir(id, tabIndex) {
-      // this.silinecek.id = id
-      // this.silinecek.tabIndex = tabIndex
       this.silinecek = {
         id: id,
         tabIndex: tabIndex
@@ -172,7 +211,13 @@ export default {
       silinecek: {
         id: "",
         tabindex: 0
-      }
+      },
+      duzenlenecek: {
+        id: "",
+        Urun: "",
+        Fiyat: 0,
+        tabIndex: 0
+      },
     };
   },
 };

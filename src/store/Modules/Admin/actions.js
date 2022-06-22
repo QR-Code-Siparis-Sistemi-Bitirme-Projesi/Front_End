@@ -1,4 +1,4 @@
-import { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl } from "@/services/AdminService";
+import { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl, MenuDuzenle } from "@/services/AdminService";
 
 export default {
   async AdminGirisi(context, kullanıcı) {
@@ -62,6 +62,16 @@ export default {
         throw new Error(err);
       });
   },
-
+  async MenuDuzenleme(_, param) {
+    console.log("action - ", param);
+    await MenuDuzenle(param)
+      .then((response) => {
+        console.log("response kayıt - ", response);
+      })
+      .catch((err) => {
+        console.log(err.response.data.hataMesaji);
+        throw err.response.data.hataMesaji;
+      });
+  },
 
 };
