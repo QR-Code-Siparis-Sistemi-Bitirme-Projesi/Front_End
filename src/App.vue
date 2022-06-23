@@ -16,6 +16,9 @@
                   <EkleCikart :eklenenUrun="urun" :propMiktar="urun.miktar" />
                 </li>
               </div>
+              <b-button @click="Gönder(urun)" class="mb-2" variant="danger">
+                Gönder
+              </b-button>
             </card-list>
           </b-col>
           <b-col>
@@ -23,6 +26,7 @@
               Toplam:
               <b-badge variant="light">{{ toplamTutarHesapla() }} TL</b-badge>
             </b-button>
+
           </b-col>
         </b-row>
       </b-container>
@@ -33,6 +37,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      siparis: []
+    }
+  },
   computed: {
     sepetiGetir() {
       return this.$store.getters["Sepet/sepetiAl"];
@@ -56,7 +65,15 @@ export default {
         return toplam + urun.miktar * urun.Fiyat;
       }, 0);
     },
-
+    Gönder(siparis) {
+      this.siparis = siparis 
+        console.log("app - ", siparis)
+      this.$store
+        .dispatch("Admin/SiparisEkle", this.siparis)
+        .catch((err) => {
+          console.log("hata - ", err)
+        })
+    }
   },
   watch: {
     sepetiGetir() {

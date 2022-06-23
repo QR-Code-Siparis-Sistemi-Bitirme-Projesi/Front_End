@@ -53,18 +53,9 @@ const SiparisSil = async (id) => {
 const AsiparisEkle = async (siparis) => {
   return await axios
     .post(
-      `${BASE_URL}api/SiparisEkle`,
-      { MasaNo: siparis.MasaNo, Urun: siparis.Urun, Ekstralar: siparis.Ekstralar, Not: siparis.Not },
-      {
-        headers: headerUret(),
-      }
+      `http://localhost:3002/api/SiparisEkle`,
+      { masaNo: 35, Miktar: siparis.miktar, Urun: [siparis.Urun, siparis.Fiyat], Ekstralar: siparis.Ekstralar, Not: siparis.Not, ToplamFiyat: siparis.Fiyat * siparis.miktar, SiparisAktifMi: false },
     )
-    .then(() => {
-      console.log("Masa numarası: ", siparis.MasaNo);
-      console.log("Ürün: ", siparis.Urun);
-      console.log("Ekstralar: ", siparis.Ekstralar);
-      console.log("Not: ", siparis.Not);
-    });
 };
 
 const AMenuAl = async (Menu) => {
@@ -88,4 +79,4 @@ const MenuDuzenle = async (menu) => {
       { id: menu.id, Urun: menu.Urun, Fiyat: menu.Fiyat, tabIndex: menu.tabIndex })
 }
 
-export { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl, MenuDuzenle,AsiparisEkle };
+export { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl, MenuDuzenle, AsiparisEkle };

@@ -1,4 +1,4 @@
-import { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl, MenuDuzenle,AsiparisEkle } from "@/services/AdminService";
+import { girisYap, UrunEkle, UrunSil, SiparisSil, AMenuAl, MenuDuzenle, AsiparisEkle } from "@/services/AdminService";
 
 export default {
   async AdminGirisi(context, kullanıcı) {
@@ -51,9 +51,10 @@ export default {
       });
   },
   async SiparisEkle(_, param) {
+    console.log("action - ", param);
     await AsiparisEkle(param)
       .then((response) => {
-        console.log("Sipariş Eklendi - ", response);
+        console.log("response kayıt - ", response);
       })
       .catch((err) => {
         console.log(err.response.data.hataMesaji);

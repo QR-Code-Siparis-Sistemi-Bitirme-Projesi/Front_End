@@ -8,28 +8,38 @@
             v-model="siparis.Urun">
           </b-form-input>
         </div>
-        <div class="col-lg-1">
+        <div class="col-lg-2">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model="siparis.Fiyat"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model.number="siparis.Fiyat">
+            </b-form-input>
           </b-input-group>
         </div>
-        <div class="col-lg-1">
+        <div class="col-lg-2">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="MasaNo" v-model="siparis.masaNo"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="MasaNo" v-model.number="siparis.masaNo">
+            </b-form-input>
           </b-input-group>
         </div>
-        <div class="col-lg-1">
+        <div class="col-lg-2">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Ekstralar" v-model="siparis.ekstralar"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="Ekstralar" v-model="siparis.ekstralar">
+            </b-form-input>
           </b-input-group>
         </div>
-        <div class="col-lg-1">
+        <div class="col-lg-2">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
             <b-form-input id="inline-form-input-username" placeholder="Not" v-model="siparis.not"></b-form-input>
           </b-input-group>
         </div>
+        <div class="col-lg-2">
+          <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
+            <b-form-input id="inline-form-input-username" placeholder="Toplam Fiyat" v-model="siparis.ToplamFiyat">
+            </b-form-input>
+          </b-input-group>
+        </div>
+
         <div class="col-lg-1">
-          <b-button variant="primary" @click="SiparisGonder()">Save</b-button>
+          <b-button type="submit" variant="primary">Save</b-button>
         </div>
       </div>
     </b-form>
@@ -43,15 +53,12 @@ export default {
     return {
       siparis: {
         masaNo: "",
-        Urun:[],
-        
-        Fiyat: "",
-        Icindekiler: [],
-        
-        Ekstralar:"",
-        Not:"",
-        ToplamFiyat:"",
-        SiparisAktifMi:false
+        Urun: "",
+        Fiyat: 0,
+        Ekstralar: "",
+        Not: "",
+        ToplamFiyat: 0,
+        SiparisAktifMi: false
       }
     }
   },
@@ -64,14 +71,24 @@ export default {
       }
     },
     FormTemizle() {
+
       this.siparis.MasaNo = "",
         this.siparis.Urun = "",
         this.siparis.Fiyat = "",
         this.siparis.Ekstralar = ""
-        this.siparis.Not = ""
+      this.siparis.Not = ""
     },
-    async SiparisGonder() {
-      this.KutuBosmu()
+    SiparisGonder() {
+      this.siparis = {
+        MasaNo: this.siparis.MasaNo,
+        Urun: this.siparis.Urun,
+        Ekstralar: this.siparis.Ekstralar,
+        Not: this.siparis.Not,
+        ToplamFiyat: this.siparis.ToplamFiyat,
+        SiparisAktifMi: this.siparis.SiparisAktifMi
+      }
+
+      console.log("siparis ekle", this.siparis)
       this.$store
         .dispatch("Admin/SiparisEkle", this.siparis)
         .catch((err) => {
