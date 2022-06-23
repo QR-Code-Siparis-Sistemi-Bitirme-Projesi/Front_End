@@ -5,32 +5,27 @@
       <div class="row">
         <div class="col-lg-2">
           <b-form-input id="inline-form-input-name" class="mb-2 mr-sm-2 mb-sm-0" placeholder="Ürün Adı"
-            v-model="Menu.Urun">
+            v-model="siparis.Urun">
           </b-form-input>
         </div>
         <div class="col-lg-1">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model="Menu.Fiyat"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="MasaNo" v-model="siparis.masaNo"></b-form-input>
           </b-input-group>
         </div>
         <div class="col-lg-1">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model="Menu.Fiyat"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="Urun" v-model="siparis.Urun"></b-form-input>
           </b-input-group>
         </div>
         <div class="col-lg-1">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model="Menu.Fiyat"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="Ekstralar" v-model="siparis.ekstralar"></b-form-input>
           </b-input-group>
         </div>
         <div class="col-lg-1">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model="Menu.Fiyat"></b-form-input>
-          </b-input-group>
-        </div>
-        <div class="col-lg-1">
-          <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model="Menu.Fiyat"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="Not" v-model="siparis.not"></b-form-input>
           </b-input-group>
         </div>
         <div class="col-lg-1">
@@ -46,51 +41,38 @@
 export default {
   data() {
     return {
-      Menu: { // dispatch ederken birden fazla parametreyi taşıyamıyoruz bu yüzden tek bir parametrenin içine atadım. (78.satır)
-        Urun: "",
+      siparis: {
+        masaNo: "",
+        Urun:[],
+        
         Fiyat: "",
-        tabIndex: "",
+        Icindekiler: [],
+        
+        Ekstralar:"",
+        Not:"",
+        ToplamFiyat:"",
+        SiparisAktifMi:false
       }
     }
   },
   methods: {
     KutuBosmu() {
-      if (!this.Menu.tabIndex || this.Menu.Urun === "" || !this.Menu.Fiyat === "") {
-        alert("Lütfen Bütün Alanları Doldurunuz")
+      if (!this.siparis.masaNo || this.siparis.Urun === "") {
+        alert("Lütfen masa numarası ve ürünü belirtiniz.")
         throw new Error("Eksik Girdiniz");
 
       }
     },
     FormTemizle() {
-      this.Menu.tabIndex = "",
-        this.Menu.Urun = "",
-        this.Menu.Fiyat = ""
+      this.siparis.MasaNo = "",
+        this.siparis.Urun = "",
+        this.siparis.Ekstralar = ""
+        this.siparis.Not = ""
     },
-    async UrunGonder() {
+    async SiparisGonder() {
       this.KutuBosmu()
-      if (this.Menu.tabIndex == "Tatlı") {
-        this.Menu.tabIndex = 1
-      }
-      else if (this.Menu.tabIndex == "İçecek") {
-        this.Menu.tabIndex = 2
-      }
-      else if (this.Menu.tabIndex == "Kahvaltı") {
-        this.Menu.tabIndex = 3
-      }
-      else if (this.Menu.tabIndex == "Bagel") {
-        this.Menu.tabIndex = 4
-      }
-      else if (this.Menu.tabIndex == "Sandviç") {
-        this.Menu.tabIndex = 5
-      }
-      else if (this.Menu.tabIndex == "HaftaSonu") {
-        this.Menu.tabIndex = 6
-      }
-      else if (this.Menu.tabIndex == "Ekstra") {
-        this.Menu.tabIndex = 7
-      }
       this.$store
-        .dispatch("Admin/MenuyeEkle", this.Menu)
+        .dispatch("Admin/SiparisEkle", this.siparis)
         .catch((err) => {
           console.log("hata - ", err)
         })

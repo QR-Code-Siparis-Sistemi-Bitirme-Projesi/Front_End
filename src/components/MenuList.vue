@@ -27,7 +27,7 @@
                   <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
                 </b-col>
               </b-row>
-              <b-modal id="modal-2" title="BootstrapVue">
+              <b-modal id="modal-2" title="Ürün Düzenle">
                 <b-card>
                   <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 3)">
                     <div class="row">
@@ -80,7 +80,7 @@
                   <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
                 </b-col>
               </b-row>
-              <b-modal id="modal-2" title="BootstrapVue">
+              <b-modal id="modal-2" title="Ürün Düzenle">
                 <b-card>
                   <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 4)">
                     <div class="row">
@@ -133,7 +133,7 @@
                   <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
                 </b-col>
               </b-row>
-              <b-modal id="modal-2" title="BootstrapVue">
+              <b-modal id="modal-2" title="Ürün Düzenle">
                 <b-card>
                   <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 6)">
                     <div class="row">
@@ -186,7 +186,7 @@
                   <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
                 </b-col>
               </b-row>
-              <b-modal id="modal-2" title="BootstrapVue">
+              <b-modal id="modal-2" title="Ürün Düzenle">
                 <b-card>
                   <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 2)">
                     <div class="row">
@@ -238,7 +238,7 @@
                   <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
                 </b-col>
               </b-row>
-              <b-modal id="modal-2" title="BootstrapVue">
+              <b-modal id="modal-2" title="Ürün Düzenle">
                 <b-card>
                   <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 1)">
                     <div class="row">
@@ -291,7 +291,7 @@
                   <b-button pill variant="primary" v-b-modal.modal-2>Düzenle</b-button>
                 </b-col>
               </b-row>
-              <b-modal id="modal-2" title="BootstrapVue">
+              <b-modal id="modal-2" title="Ürün Düzenle">
                 <b-card>
                   <b-form @submit.prevent="Duzenle(urun._id, duzenlenecek.Urun, duzenlenecek.Fiyat, 5)">
                     <div class="row">

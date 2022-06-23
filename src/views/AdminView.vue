@@ -15,11 +15,13 @@
       </b-tab>
       <b-tab title="Siparişleri Görüntüle">
         <p>
-          <SiparisList /> EKSİK
+          <SiparisList />
         </p>
       </b-tab>
       <b-tab title="Sipariş Ekle">
-        <p>I'm the second tab</p>
+        <p>
+          <SiparisEkle></SiparisEkle>
+        </p>
       </b-tab>
     </b-tabs>
   </b-card>
@@ -28,6 +30,7 @@
 <script>
 import MenuList from "../components/MenuList.vue";
 import UrunEkle from "../components/AdminServices/UrunEkle.vue";
+import SiparisEkle from "../components/SiparisServices/SiparisEkle.vue";
 import SiparisList from "../components/SiparisList.vue"
 
 export default {
@@ -35,6 +38,7 @@ export default {
     MenuList,
     UrunEkle,
     SiparisList,
+    SiparisEkle
   },
   methods: {
     cikis() {
