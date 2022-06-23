@@ -1,7 +1,7 @@
 <template>
 
   <b-card>
-    <b-form @submit.prevent="UrunGonder()">
+    <b-form @submit.prevent="SiparisGonder()">
       <div class="row">
         <div class="col-lg-2">
           <b-form-input id="inline-form-input-name" class="mb-2 mr-sm-2 mb-sm-0" placeholder="Ürün Adı"
@@ -29,7 +29,7 @@
           </b-input-group>
         </div>
         <div class="col-lg-1">
-          <b-button variant="primary" @click="UrunGonder()">Save</b-button>
+          <b-button variant="primary" @click="SiparisGonder()">Save</b-button>
         </div>
       </div>
     </b-form>
