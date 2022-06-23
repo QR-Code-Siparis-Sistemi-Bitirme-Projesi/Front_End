@@ -10,12 +10,12 @@
         </div>
         <div class="col-lg-1">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="MasaNo" v-model="siparis.masaNo"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="Fiyat" v-model="siparis.Fiyat"></b-form-input>
           </b-input-group>
         </div>
         <div class="col-lg-1">
           <b-input-group class="col-lg-4 mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Urun" v-model="siparis.Urun"></b-form-input>
+            <b-form-input id="inline-form-input-username" placeholder="MasaNo" v-model="siparis.masaNo"></b-form-input>
           </b-input-group>
         </div>
         <div class="col-lg-1">
@@ -66,6 +66,7 @@ export default {
     FormTemizle() {
       this.siparis.MasaNo = "",
         this.siparis.Urun = "",
+        this.siparis.Fiyat = "",
         this.siparis.Ekstralar = ""
         this.siparis.Not = ""
     },

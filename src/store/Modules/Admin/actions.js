@@ -53,7 +53,7 @@ export default {
   async SiparisEkle(_, param) {
     await AsiparisEkle(param)
       .then((response) => {
-        console.log("Sipariş Silindi - ", response);
+        console.log("Sipariş Eklendi - ", response);
       })
       .catch((err) => {
         console.log(err.response.data.hataMesaji);
